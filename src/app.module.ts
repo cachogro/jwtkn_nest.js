@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { ClusterModule } from './cluster/cluster.module';
+import { ExportModule } from './export/export.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { ClusterModule } from './cluster/cluster.module';
       synchronize: false,
     }),
     ClusterModule,
+    ExportModule,
   ],
   controllers: [AppController],
 })

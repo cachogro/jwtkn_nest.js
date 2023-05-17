@@ -11,6 +11,8 @@ export class PersonaService {
     @InjectRepository(Persona)
     private readonly personaRepository: Repository<Persona>,
   ) {}
+
+  //crear persona
   async crearPersona(CreatePersonaDto: CreatePersonaDto) {
     try {
       const personaC = this.personaRepository.create(CreatePersonaDto);
@@ -32,16 +34,16 @@ export class PersonaService {
   }
 
   //funcion update
-  async update(id: number, updateHojaMineriaDto: UpdatePersonaDto): Promise<Persona> {
-    const hojaMineria = await this.personaRepository.findOneBy({id});
+  async update(id: number, updatePersonaDto: UpdatePersonaDto): Promise<Persona> {
+    const personaup = await this.personaRepository.findOneBy({id});
   
-    if (!hojaMineria) {
+    if (!personaup) {
       throw new NotFoundException(`Registro con ID ${id} no encontrado`);
     }
   
-    const updatedHojaMineria = Object.assign(hojaMineria, updateHojaMineriaDto);
-  
-    return await this.personaRepository.save(updatedHojaMineria);
+    const updatePersona = Object.assign(personaup, updatePersonaDto);
+
+    return await this.personaRepository.save(updatePersona);
   }
 
 
