@@ -12,22 +12,6 @@ import {
 } from 'class-validator';
 
 export class CreateMineral2Dto {
-  // @IsNumber()
-  // id: number;
-
-  // @IsString({ message: 'nombre debe ser una cadena de caracteres.' })
-  // @IsOptional()
-  // @Transform((param) => param.value.toUpperCase())
-  // nombre: string;
-
-  // @IsString()
-  // @IsNotEmpty()
-  // @Transform((param) => param.value.toUpperCase())
-  // apellido: string;
-
-  // @IsOptional()
-  // fecha: Date;
-
   @IsNumber()
   id: number;
 
@@ -42,5 +26,4 @@ export class CreateMineral2Dto {
   @IsNumber()
   @IsOptional()
   ley_mineral: number;
-
 }

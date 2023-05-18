@@ -1,4 +1,8 @@
-import { Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
+import {
+  Injectable,
+  InternalServerErrorException,
+  NotFoundException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Persona } from '../entities/persona.entity';
 import { Repository } from 'typeorm';
@@ -25,7 +29,7 @@ export class PersonaService {
   }
   //funcion para buscar por id
   async findOne(id: number): Promise<Persona> {
-    return await this.personaRepository.findOneBy({id});
+    return await this.personaRepository.findOneBy({ id });
   }
   //eliminar por id
   async delete(id: number): Promise<boolean> {
@@ -34,17 +38,18 @@ export class PersonaService {
   }
 
   //funcion update
-  async update(id: number, updatePersonaDto: UpdatePersonaDto): Promise<Persona> {
-    const personaup = await this.personaRepository.findOneBy({id});
-  
+  async update(
+    id: number,
+    updatePersonaDto: UpdatePersonaDto,
+  ): Promise<Persona> {
+    const personaup = await this.personaRepository.findOneBy({ id });
+
     if (!personaup) {
       throw new NotFoundException(`Registro con ID ${id} no encontrado`);
     }
-  
+
     const updatePersona = Object.assign(personaup, updatePersonaDto);
 
     return await this.personaRepository.save(updatePersona);
   }
-
-
 }

@@ -7,7 +7,6 @@ import { CreatehojaMineriaDto } from '../../dto/hoja.mineria-create.dto';
 
 @Injectable()
 export class HojaMineriaService {
-  
   getHlById(idHl: number) {
     throw new Error('Method not implemented.');
   }
@@ -21,7 +20,6 @@ export class HojaMineriaService {
       const hoja = this.hoja_mineraRepository.create(CreatehojaMineriaDto);
       await this.hoja_mineraRepository.save(hoja);
       return hoja;
-      
     } catch (error) {
       console.log(error);
       throw new InternalServerErrorException('Ayuda!');
@@ -33,5 +31,4 @@ export class HojaMineriaService {
       relations: { origenMineral: true },
     });
   }
-  
 }

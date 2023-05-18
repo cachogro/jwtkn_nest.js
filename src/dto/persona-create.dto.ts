@@ -22,9 +22,7 @@ export class CreatePersonaDto {
   @IsNotEmpty()
   @Transform((param) => param.value.toUpperCase())
   apellido: string;
- 
+
   @IsOptional()
   fecha: Date;
-
-
 }

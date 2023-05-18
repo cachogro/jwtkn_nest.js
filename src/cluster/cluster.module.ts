@@ -17,26 +17,29 @@ import { PersonaController } from './controller/persona.controller';
 import { PersonaService } from './services/persona.service';
 import { Persona } from './entities/persona.entity';
 
-
 @Module({
   controllers: [
-                MunicipioController,
-                HojaMineriaController,
-                MineralController,
-                OrigenMineralController,
-                PersonaController
-              ],
+    MunicipioController,
+    HojaMineriaController,
+    MineralController,
+    OrigenMineralController,
+    PersonaController,
+  ],
   providers: [
-              MunicipioService,
-              HojaMineriaService,
-              MineralService,
-              OrigenMineralService,
-              PdfgenerateService,
-              PersonaService
-            ],
+    MunicipioService,
+    HojaMineriaService,
+    MineralService,
+    OrigenMineralService,
+    PdfgenerateService,
+    PersonaService,
+  ],
   imports: [
     TypeOrmModule.forFeature([
-       Municipio,Hoja_Mineral,Mineral,OrigenMineral,Persona,
+      Municipio,
+      Hoja_Mineral,
+      Mineral,
+      OrigenMineral,
+      Persona,
     ]),
   ],
   exports: [TypeOrmModule],

@@ -35,5 +35,4 @@ export class CreatehojaMineriaDto {
   @IsNumber()
   @IsOptional()
   transaccion?: number;
-
 }
